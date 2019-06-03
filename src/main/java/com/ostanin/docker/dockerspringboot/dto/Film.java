@@ -20,4 +20,5 @@ public class Film {
     //@Pattern(regexp = "(\\d+.?,?\\d+)", message = "Неправильно указан балл")
     //@NotNull(message = "Please enter points")
     private double points;
+    private int count;
 }

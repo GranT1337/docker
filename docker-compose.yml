@@ -4,22 +4,12 @@ services:
     image: docker-spring-boot
     ports:
     - 8085:8085
-    depends_on:
-    - db
     links:
-    - db
-  db:
+    - postgres
+    volumes:
+    - d:/docker/log:/log
+  postgres:
     container_name: spring-postgresql
     image: postgres
-    restart: always
-    volumes:
-    - spring-pgdb:/var/lib/postgresql/data
     environment:
-    - POSTGRES_PASSWORD=kirill
-    - POSTGRES_USER=postgres
-    - POSTGRES_DB=db
-    - PGDATA=/var/lib/postgresql/data/pgdata
-    ports:
-    - 8081:8081
-volumes:
-  spring-pgdb: {}
+    - POSTGRES_PASSWORD=postgres
